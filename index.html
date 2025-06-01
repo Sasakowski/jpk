@@ -1,3 +1,169 @@
 <!DOCTYPE html><html>
 
-<head><title>JPK</title><link rel = "stylesheet" href = "stylesheet.css"</head>
+<head>
+	<title>JPK</title>
+	<link rel = "stylesheet" href = "stylesheet.css">
+	<style>
+		#HIRAGANA, #PUNCT, #MULTIRAD { display: none; }
+
+		int { display: flex; justify-content: center; width: fit-content; min-height: 6vh; }
+		int button { height: fit-content; }
+		int text { font-size: 125%; }
+	</style>
+	<script>
+		function Hiragana() {
+			document.getElementById("DEFAULT").style.display = "none";
+			document.getElementById("HIRAGANA").style.display = "block";
+			document.getElementById("PUNCT").style.display = "none";
+			document.getElementById("MULTIRAD").style.display = "none";
+		}
+		function Punct() {
+			document.getElementById("DEFAULT").style.display = "none";
+			document.getElementById("HIRAGANA").style.display = "none";
+			document.getElementById("PUNCT").style.display = "block";
+			document.getElementById("MULTIRAD").style.display = "none";
+		}
+		function Multirad() {
+			document.getElementById("DEFAULT").style.display = "none";
+			document.getElementById("HIRAGANA").style.display = "none";
+			document.getElementById("PUNCT").style.display = "none";
+			document.getElementById("MULTIRAD").style.display = "block";
+		}
+		function Input(s) {
+			document.getElementById("OUTPUT").value += s;
+		}
+	</script>
+</head>
+
+<body><flex_rows>
+
+<block id = "HORIZONTAL_SCREEN_PLEASE" class = "center_h"><text_l>Please rotate the screen.</text_l></block>
+
+<block><flex_rows>
+	<textarea id = "OUTPUT" style = "resize: vertical;" rows = "4"></textarea>
+	<space></space>
+	<block2><flex_columns>
+		<button onclick = "Hiragana();">Hiragana</button>
+		<space_l></space_l>
+		<button onclick = "Punct();">Punctuation</button>
+		<space_l></space_l>
+		<button onclick = "Multirad();">Multiradical</button>
+	</flex_columns></block2>
+</flex_rows></block>
+
+<space_l></space_l>
+
+<block><flex_rows>
+
+	<block2 id = "DEFAULT">Click one of the above buttons...</block2>
+
+	<block2 id = "HIRAGANA">
+		<flex_columns>
+			<flex_rows>
+				<int>あ</int>
+				<int>か,が</int>
+				<int>さ,ざ</int>
+				<int>た,だ</int>
+				<int>な</int>
+				<int>は,ば,ぱ</int>
+				<int>ま</int>
+				<int>や</int>
+				<int>ら</int>
+				<int>わ</int>
+			</flex_rows>
+			<space></space>
+			<flex_rows>
+				<int>い</int>
+				<int>き,ぎ</int>
+				<int>し,じ</int>
+				<int>ち,ぢ</int>
+				<int>に</int>
+				<int>ひ,び,ぴ</int>
+				<int>み</int>
+				<int></int>
+				<int>り</int>
+				<int></int>
+			</flex_rows>
+			<space></space>
+			<flex_rows>
+				<int>う</int>
+				<int>く,ぐ</int>
+				<int>す,ず</int>
+				<int>つ,づ</int>
+				<int>ぬ</int>
+				<int>ふ,ぶ,ぷ</int>
+				<int>む</int>
+				<int>ゆ</int>
+				<int>る</int>
+				<int></int>
+			</flex_rows>
+			<space></space>
+			<flex_rows>
+				<int>え</int>
+				<int>け,げ</int>
+				<int>せ,ぜ</int>
+				<int>て,で</int>
+				<int>ね</int>
+				<int>へ,べ,ぺ</int>
+				<int>め</int>
+				<int></int>
+				<int>れ</int>
+				<int></int>
+			</flex_rows>
+			<space></space>
+			<flex_rows>
+				<int>お</int>
+				<int>こ,ご</int>
+				<int>そ,ぞ</int>
+				<int>と,ど</int>
+				<int>の</int>
+				<int>ほ,ぼ,ぽ</int>
+				<int>も</int>
+				<int>よ</int>
+				<int>ろ</int>
+				<int>を</int>
+			</flex_rows>
+			<space></space>
+			<flex_rows>
+				<int>ん</int>
+			</flex_rows>
+		</flex_columns>
+	</block2>
+
+	<block2 id = "PUNCT">
+		<flex_columns>
+			<flex_rows>
+				<int>（,）</int>
+				<int>｛,｝</int>
+				<int>［,］</int>
+				<int>【,】</int>
+			</flex_rows>
+			<space></space>
+			<flex_rows>
+				<int>、,，</int>
+				<int>。</int>
+				<int>！,？</int>
+				<int>：</int>
+				<int>…,‥</int>
+			</flex_rows>
+			<space></space>
+			<flex_rows>
+				<int>「,」</int>
+				<int>『,』</int>
+				<int>〝,〟</int>
+			</flex_rows>
+			<space></space>
+			<flex_rows>
+				<int>ー</int>
+				<int>＝</int>
+				<int>・</int>
+				<int>〜</int>
+			</flex_rows>
+		</flex_columns>
+	</block2>
+
+	<block2 id = "MULTIRAD">Multiradial</block2>
+
+
+<script src = "Setup.js"></script>
+<script>Setup("HIRAGANA"); Setup("PUNCT");</script>
