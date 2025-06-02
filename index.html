@@ -4,28 +4,49 @@
 	<title>JPK</title>
 	<link rel = "stylesheet" href = "stylesheet.css">
 	<style>
-		#HIRAGANA, #PUNCT, #MULTIRAD { display: none; }
-
+		#HIRA, #KATA, #PUNCT, #MULTIRAD { display: none; }
 		int { display: flex; justify-content: center; width: fit-content; min-height: 6vh; }
 		int button { height: fit-content; }
 		int text { font-size: 125%; }
+		intrad img { display: inline-block; min-height: var(--text_l); min-width: auto; }
+		intrad img:not(.selected)  { border: 2px solid var(--textcolor); }
+		intrad img:hover:not(.selected)  { border: 2px dashed var(--textcolor); }
+		intrad img.selected { border: 2px solid var(--accent); }
+		intrad img.selected:hover { border: 2px dashed var(--accent); }
 	</style>
 	<script>
-		function Hiragana() {
+		function Default() {
+			document.getElementById("DEFAULT").style.display = "block";
+			document.getElementById("HIRA").style.display = "none";
+			document.getElementById("KATA").style.display = "none";
+			document.getElementById("PUNCT").style.display = "none";
+			document.getElementById("MULTIRAD").style.display = "none";
+		}
+		function Hira() {
 			document.getElementById("DEFAULT").style.display = "none";
-			document.getElementById("HIRAGANA").style.display = "block";
+			document.getElementById("HIRA").style.display = "block";
+			document.getElementById("KATA").style.display = "none";
+			document.getElementById("PUNCT").style.display = "none";
+			document.getElementById("MULTIRAD").style.display = "none";
+		}
+		function Kata() {
+			document.getElementById("DEFAULT").style.display = "none";
+			document.getElementById("HIRA").style.display = "none";
+			document.getElementById("KATA").style.display = "block";
 			document.getElementById("PUNCT").style.display = "none";
 			document.getElementById("MULTIRAD").style.display = "none";
 		}
 		function Punct() {
 			document.getElementById("DEFAULT").style.display = "none";
-			document.getElementById("HIRAGANA").style.display = "none";
+			document.getElementById("HIRA").style.display = "none";
+			document.getElementById("KATA").style.display = "none";
 			document.getElementById("PUNCT").style.display = "block";
 			document.getElementById("MULTIRAD").style.display = "none";
 		}
 		function Multirad() {
 			document.getElementById("DEFAULT").style.display = "none";
-			document.getElementById("HIRAGANA").style.display = "none";
+			document.getElementById("HIRA").style.display = "none";
+			document.getElementById("KATA").style.display = "none";
 			document.getElementById("PUNCT").style.display = "none";
 			document.getElementById("MULTIRAD").style.display = "block";
 		}
@@ -37,13 +58,17 @@
 
 <body><flex_rows>
 
-<block id = "HORIZONTAL_SCREEN_PLEASE" class = "center_h"><text_l>Please rotate the screen.</text_l></block>
+<!--<block id = "HORIZONTAL_SCREEN_PLEASE" class = "center_h"><text_l>Please rotate the screen.</text_l></block>-->
 
 <block><flex_rows>
-	<textarea id = "OUTPUT" style = "resize: vertical;" rows = "4"></textarea>
+	<textarea id = "OUTPUT" style = "resize: vertical;" rows = "2"></textarea>
 	<space></space>
 	<block2><flex_columns>
-		<button onclick = "Hiragana();">Hiragana</button>
+		<button onclick = "Default();">About</button>
+		<space_l></space_l>
+		<button onclick = "Hira();">Hiragana</button>
+		<space_l></space_l>
+		<button onclick = "Kata();">Katakana</button>
 		<space_l></space_l>
 		<button onclick = "Punct();">Punctuation</button>
 		<space_l></space_l>
@@ -55,9 +80,19 @@
 
 <block><flex_rows>
 
-	<block2 id = "DEFAULT">Click one of the above buttons...</block2>
+	<block2 id = "DEFAULT"><flex_rows>
+		<text><text_l>JPK - JaPainese Keyboard</text_l>
 
-	<block2 id = "HIRAGANA">
+			A small little webtool that allows the input of a great amount of japanese characters.
+			It's a watered-down version of <a href = "https://kanji.sljfaq.org/">https://kanji.sljfaq.org/</a>, so if this tool doesn't suffice, just move over.
+
+			<a href = "https://github.com/Sasakowski/jpk">Github</a>
+		</text>
+		
+		
+	</flex_rows></block2>
+
+	<block2 id = "HIRA">
 		<flex_columns>
 			<flex_rows>
 				<int>あ</int>
@@ -126,6 +161,81 @@
 			<space></space>
 			<flex_rows>
 				<int>ん</int>
+				<int>ゃ,ゅ,ょ</int>
+			</flex_rows>
+		</flex_columns>
+	</block2>
+
+	<block2 id = "KATA">
+		<flex_columns>
+			<flex_rows>
+				<int>ア</int>
+				<int>カ,ガ</int>
+				<int>サ,ザ</int>
+				<int>タ,ダ</int>
+				<int>ナ</int>
+				<int>ハ,バ,パ</int>
+				<int>マ</int>
+				<int>ヤ</int>
+				<int>ラ</int>
+				<int>ワ</int>
+			</flex_rows>
+			<space></space>
+			<flex_rows>
+				<int>イ</int>
+				<int>キ,ギ</int>
+				<int>シ,ジ</int>
+				<int>チ,ヂ</int>
+				<int>ニ</int>
+				<int>ヒ,ビ,ピ</int>
+				<int>ミ</int>
+				<int></int>
+				<int>リ</int>
+				<int></int>
+			</flex_rows>
+			<space></space>
+			<flex_rows>
+				<int>ウ</int>
+				<int>ク,グ</int>
+				<int>ス,ズ</int>
+				<int>ツ,ヅ</int>
+				<int>ヌ</int>
+				<int>フ,ブ,プ</int>
+				<int>ム</int>
+				<int>ユ</int>
+				<int>ル</int>
+				<int></int>
+			</flex_rows>
+			<space></space>
+			<flex_rows>
+				<int>エ</int>
+				<int>ケ,ゲ</int>
+				<int>セ,ゼ</int>
+				<int>テ,デ</int>
+				<int>ネ</int>
+				<int>ヘ,ベ,ペ</int>
+				<int>メ</int>
+				<int></int>
+				<int>レ</int>
+				<int></int>
+			</flex_rows>
+			<space></space>
+			<flex_rows>
+				<int>オ</int>
+				<int>コ,ゴ</int>
+				<int>ソ,ゾ</int>
+				<int>ト,ド</int>
+				<int>ノ</int>
+				<int>ホ,ボ,ポ</int>
+				<int>モ</int>
+				<int>ヨ</int>
+				<int>ロ</int>
+				<int>ヲ</int>
+			</flex_rows>
+			<space></space>
+			<flex_rows>
+				<int>ン</int>
+				<int>ャ,ュ,ョ</int>
 			</flex_rows>
 		</flex_columns>
 	</block2>
@@ -162,8 +272,328 @@
 		</flex_columns>
 	</block2>
 
-	<block2 id = "MULTIRAD">Multiradial</block2>
+	<block2 id = "MULTIRAD">
+		<flex_rows>
+		
+			<flex_rows style = "max-height: 30vh; overflow-y: auto; flex-wrap: nowrap;">
+			<flex_columns>
+				<text_l>1</text_l>
+				<space></space>
+				<intrad>1 A</intrad>
+				<intrad>1 B</intrad>
+				<intrad>1 C</intrad>
+				<intrad>1 D</intrad>
+				<intrad>1 E</intrad>
+				<intrad>1 F</intrad>
+			</flex_columns>
+			<flex_columns>
+				<text_l>2</text_l>
+				<space></space>
+				<intrad>2 A</intrad>
+				<intrad>2 B</intrad>
+				<intrad>2 C</intrad>
+				<intrad>2 D</intrad>
+				<intrad>2 E</intrad>
+				<intrad>2 F</intrad>
+				<intrad>2 G</intrad>
+				<intrad>2 H</intrad>
+				<intrad>2 I</intrad>
+				<intrad>2 J</intrad>
+				<intrad>2 K</intrad>
+				<intrad>2 L</intrad>
+				<intrad>2 M</intrad>
+				<intrad>2 N</intrad>
+				<intrad>2 O</intrad>
+				<intrad>2 P</intrad>
+				<intrad>2 Q</intrad>
+				<intrad>2 R</intrad>
+				<intrad>2 S</intrad>
+				<intrad>2 T</intrad>
+				<intrad>2 U</intrad>
+				<intrad>2 V</intrad>
+				<intrad>2 W</intrad>
+				<intrad>2 X</intrad>
+				<intrad>2 Y</intrad>
+				<intrad>2 Z</intrad>
+				<intrad>2 zA</intrad>
+				<intrad>2 zB</intrad>
+				<intrad>2 zC</intrad>
+				<intrad>2 zD</intrad>
+				<intrad>2 zE</intrad>
+			</flex_columns>
+			<flex_columns>
+				<text_l>3</text_l>
+				<space></space>
+				<intrad>3 A</intrad>
+				<intrad>3 B</intrad>
+				<intrad>3 C</intrad>
+				<intrad>3 D</intrad>
+				<intrad>3 E</intrad>
+				<intrad>3 F</intrad>
+				<intrad>3 G</intrad>
+				<intrad>3 H</intrad>
+				<intrad>3 I</intrad>
+				<intrad>3 J</intrad>
+				<intrad>3 K</intrad>
+				<intrad>3 L</intrad>
+				<intrad>3 M</intrad>
+				<intrad>3 N</intrad>
+				<intrad>3 O</intrad>
+				<intrad>3 P</intrad>
+				<intrad>3 Q</intrad>
+				<intrad>3 R</intrad>
+				<intrad>3 S</intrad>
+				<intrad>3 T</intrad>
+				<intrad>3 U</intrad>
+				<intrad>3 V</intrad>
+				<intrad>3 W</intrad>
+				<intrad>3 X</intrad>
+				<intrad>3 Y</intrad>
+				<intrad>3 Z</intrad>
+				<intrad>3 zA</intrad>
+				<intrad>3 zB</intrad>
+				<intrad>3 zC</intrad>
+				<intrad>3 zD</intrad>
+				<intrad>3 zE</intrad>
+				<intrad>3 zF</intrad>
+				<intrad>3 zG</intrad>
+				<intrad>3 zH</intrad>
+				<intrad>3 zI</intrad>
+				<intrad>3 zJ</intrad>
+				<intrad>3 zK</intrad>
+				<intrad>3 zL</intrad>
+				<intrad>3 zM</intrad>
+				<intrad>3 zN</intrad>
+				<intrad>3 zO</intrad>
+				<intrad>3 zP</intrad>
+				<intrad>3 zQ</intrad>
+				<intrad>3 zR</intrad>
+				<intrad>3 zS</intrad>
+			</flex_columns>
+			<flex_columns>
+				<text_l>4</text_l>
+				<space></space>
+				<intrad>4 A</intrad>
+				<intrad>4 B</intrad>
+				<intrad>4 C</intrad>
+				<intrad>4 D</intrad>
+				<intrad>4 E</intrad>
+				<intrad>4 F</intrad>
+				<intrad>4 G</intrad>
+				<intrad>4 H</intrad>
+				<intrad>4 I</intrad>
+				<intrad>4 J</intrad>
+				<intrad>4 K</intrad>
+				<intrad>4 L</intrad>
+				<intrad>4 M</intrad>
+				<intrad>4 N</intrad>
+				<intrad>4 O</intrad>
+				<intrad>4 P</intrad>
+				<intrad>4 Q</intrad>
+				<intrad>4 R</intrad>
+				<intrad>4 S</intrad>
+				<intrad>4 T</intrad>
+				<intrad>4 U</intrad>
+				<intrad>4 V</intrad>
+				<intrad>4 W</intrad>
+				<intrad>4 X</intrad>
+				<intrad>4 Y</intrad>
+				<intrad>4 Z</intrad>
+				<intrad>4 zA</intrad>
+				<intrad>4 zB</intrad>
+				<intrad>4 zC</intrad>
+				<intrad>4 zD</intrad>
+				<intrad>4 zE</intrad>
+				<intrad>4 zF</intrad>
+				<intrad>4 zG</intrad>
+				<intrad>4 zH</intrad>
+				<intrad>4 zI</intrad>
+				<intrad>4 zJ</intrad>
+				<intrad>4 zK</intrad>
+				<intrad>4 zL</intrad>
+				<intrad>4 zM</intrad>
+				<intrad>4 zN</intrad>
+				<intrad>4 zO</intrad>
+				<intrad>4 zP</intrad>
+				<intrad>4 zQ</intrad>
+				<intrad>4 zR</intrad>
+			</flex_columns>
+			<flex_columns>
+				<text_l>5</text_l>
+				<space></space>
+				<intrad>5 A</intrad>
+				<intrad>5 B</intrad>
+				<intrad>5 C</intrad>
+				<intrad>5 D</intrad>
+				<intrad>5 E</intrad>
+				<intrad>5 F</intrad>
+				<intrad>5 G</intrad>
+				<intrad>5 H</intrad>
+				<intrad>5 I</intrad>
+				<intrad>5 J</intrad>
+				<intrad>5 K</intrad>
+				<intrad>5 L</intrad>
+				<intrad>5 M</intrad>
+				<intrad>5 N</intrad>
+				<intrad>5 O</intrad>
+				<intrad>5 P</intrad>
+				<intrad>5 Q</intrad>
+				<intrad>5 R</intrad>
+				<intrad>5 S</intrad>
+				<intrad>5 T</intrad>
+				<intrad>5 U</intrad>
+				<intrad>5 V</intrad>
+				<intrad>5 W</intrad>
+				<intrad>5 X</intrad>
+				<intrad>5 Y</intrad>
+				<intrad>5 Z</intrad>
+				<intrad>5 zA</intrad>
+				<intrad>5 zB</intrad>
+			</flex_columns>
+			<flex_columns>
+				<text_l>6</text_l>
+				<space></space>
+				<intrad>6 A</intrad>
+				<intrad>6 B</intrad>
+				<intrad>6 C</intrad>
+				<intrad>6 D</intrad>
+				<intrad>6 E</intrad>
+				<intrad>6 F</intrad>
+				<intrad>6 G</intrad>
+				<intrad>6 H</intrad>
+				<intrad>6 I</intrad>
+				<intrad>6 J</intrad>
+				<intrad>6 K</intrad>
+				<intrad>6 L</intrad>
+				<intrad>6 M</intrad>
+				<intrad>6 N</intrad>
+				<intrad>6 O</intrad>
+				<intrad>6 P</intrad>
+				<intrad>6 Q</intrad>
+				<intrad>6 R</intrad>
+				<intrad>6 S</intrad>
+				<intrad>6 T</intrad>
+				<intrad>6 U</intrad>
+				<intrad>6 V</intrad>
+				<intrad>6 W</intrad>
+				<intrad>6 X</intrad>
+				<intrad>6 Y</intrad>
+			</flex_columns>
+			<flex_columns>
+				<text_l>7</text_l>
+				<space></space>
+				<intrad>7 A</intrad>
+				<intrad>7 B</intrad>
+				<intrad>7 C</intrad>
+				<intrad>7 D</intrad>
+				<intrad>7 E</intrad>
+				<intrad>7 F</intrad>
+				<intrad>7 G</intrad>
+				<intrad>7 H</intrad>
+				<intrad>7 I</intrad>
+				<intrad>7 J</intrad>
+				<intrad>7 K</intrad>
+				<intrad>7 L</intrad>
+				<intrad>7 M</intrad>
+				<intrad>7 N</intrad>
+				<intrad>7 O</intrad>
+				<intrad>7 P</intrad>
+				<intrad>7 Q</intrad>
+				<intrad>7 R</intrad>
+				<intrad>7 S</intrad>
+				<intrad>7 T</intrad>
+				<intrad>7 U</intrad>
+			</flex_columns>
+			<flex_columns>
+				<text_l>8</text_l>
+				<space></space>
+				<intrad>8 A</intrad>
+				<intrad>8 B</intrad>
+				<intrad>8 C</intrad>
+				<intrad>8 D</intrad>
+				<intrad>8 E</intrad>
+				<intrad>8 F</intrad>
+				<intrad>8 G</intrad>
+				<intrad>8 H</intrad>
+				<intrad>8 I</intrad>
+				<intrad>8 J</intrad>
+				<intrad>8 K</intrad>
+				<intrad>8 L</intrad>
+			</flex_columns>
+			<flex_columns>
+				<text_l>9</text_l>
+				<space></space>
+				<intrad>9 A</intrad>
+				<intrad>9 B</intrad>
+				<intrad>9 C</intrad>
+				<intrad>9 D</intrad>
+				<intrad>9 E</intrad>
+				<intrad>9 F</intrad>
+				<intrad>9 G</intrad>
+				<intrad>9 H</intrad>
+				<intrad>9 I</intrad>
+				<intrad>9 J</intrad>
+				<intrad>9 K</intrad>
+			</flex_columns>
+			<flex_columns>
+				<text_l>10</text_l>
+				<space></space>
+				<intrad>10 A</intrad>
+				<intrad>10 B</intrad>
+				<intrad>10 C</intrad>
+				<intrad>10 D</intrad>
+				<intrad>10 E</intrad>
+				<intrad>10 F</intrad>
+				<intrad>10 G</intrad>
+				<intrad>10 H</intrad>
+				<intrad>10 I</intrad>
+				<intrad>10 J</intrad>
+			</flex_columns>
+			<flex_columns>
+				<text_l>11</text_l>
+				<space></space>
+				<intrad>11 A</intrad>
+				<intrad>11 B</intrad>
+				<intrad>11 C</intrad>
+				<intrad>11 D</intrad>
+				<intrad>11 E</intrad>
+				<intrad>11 F</intrad>
+				<intrad>11 G</intrad>
+				<intrad>11 H</intrad>
+				<intrad>11 I</intrad>
+			</flex_columns>
+			<flex_columns>
+				<text_l>12</text_l>
+				<space></space>
+				<intrad>12 A</intrad>
+				<intrad>12 B</intrad>
+				<intrad>12 C</intrad>
+				<intrad>12 D</intrad>
+			</flex_columns>
+			<flex_columns>
+				<text_l>13</text_l>
+				<space></space>
+				<intrad>13 A</intrad>
+				<intrad>13 B</intrad>
+				<intrad>13 C</intrad>
+				<intrad>13 D</intrad>
+				<intrad>13 E</intrad>
+				<intrad>13 F</intrad>
+				<intrad>13 G</intrad>
+			</flex_columns>
+		
+		</flex_rows>
+		
+		<space_l></space_l>
+		<block3><flex_rows id = "MULTIRAD_OUTPUT" style = "max-height: 30vh; overflow-y: auto; flex-wrap: nowrap;">
+			Select something!
+		</flex_rows></block3>
 
+		</flex_rows>
+	</block2>
+	
+	
+	
 
 <script src = "Setup.js"></script>
-<script>Setup("HIRAGANA"); Setup("PUNCT");</script>
+<script>Setup("HIRA"); Setup("KATA"); Setup("PUNCT"); SetupMulti("MULTIRAD");</script>

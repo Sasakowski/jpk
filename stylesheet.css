@@ -28,15 +28,14 @@
 	--body: #424951;
 	--body2: #3D434B;
 }
-@media (orientation: portrait) {
+/*@media (orientation: portrait) {
 	#HORIZONTAL_SCREEN_PLEASE { display: block; height: 98vh; width: 99vw; }
 	block:not(#HORIZONTAL_SCREEN_PLEASE) { display: none; }
 }
 @media (orientation: landscape) {
 	#HORIZONTAL_SCREEN_PLEASE { display: none; }
-}
+}*/
 
-/* Foundation */
 body {
 	margin-top: 0px; margin-left: 0px;
 	background-size: 6vw 6vw;
@@ -44,7 +43,7 @@ body {
 	min-height: 98vh; margin-bottom: 2vh;
 	font-size: var(--text);
 	color: var(--textcolor);
-	font-family: Arial;
+	font-family: Sans-serif;
 	
 	background-image: repeating-linear-gradient(45deg, var(--body) 0px, var(--body) 2vw, transparent 0%, transparent 50%);
 	background-color: var(--body2);
@@ -111,7 +110,7 @@ quote::after { content: "“"; }
 
 input, select, textarea, button {
 	font-size: var(--text);
-	font-family: Arial;
+	font-family: Sans-serif;
 	background-color: var(--theme);
 	color: var(--textcolor);
 	border: var(--space_s) solid var(--accent3);
