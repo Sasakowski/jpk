@@ -1,7 +1,7 @@
 <!DOCTYPE html><html>
 
 <head>
-	<title>JPK</title>
+	<title>JPK - JaPainese Keyboard</title>
 	<link rel = "stylesheet" href = "stylesheet.css">
 	<style>
 		#HIRA, #KATA, #PUNCT, #MULTIRAD { display: none; }
@@ -9,10 +9,11 @@
 		int button { height: fit-content; }
 		int text { font-size: 125%; }
 		intrad img { display: inline-block; min-height: var(--text_l); min-width: auto; }
-		intrad img:not(.selected)  { border: 2px solid var(--textcolor); }
-		intrad img:hover:not(.selected)  { border: 2px dashed var(--textcolor); }
+		intrad img:not(.selected)  { border: 2px solid rgba(0,0,0,0); }
+		intrad img:hover:not(.selected)  { border: 2px solid var(--textcolor); }
 		intrad img.selected { border: 2px solid var(--accent); }
 		intrad img.selected:hover { border: 2px dashed var(--accent); }
+		#MULTIRAD_OUTPUT text_l { display: flex; align-items: center; }
 	</style>
 	<script>
 		function Default() {
@@ -57,8 +58,6 @@
 </head>
 
 <body><flex_rows>
-
-<!--<block id = "HORIZONTAL_SCREEN_PLEASE" class = "center_h"><text_l>Please rotate the screen.</text_l></block>-->
 
 <block><flex_rows>
 	<textarea id = "OUTPUT" style = "resize: vertical;" rows = "2"></textarea>
@@ -117,7 +116,7 @@
 				<int>み</int>
 				<int></int>
 				<int>り</int>
-				<int></int>
+				<int>ゐ</int>
 			</flex_rows>
 			<space></space>
 			<flex_rows>
@@ -143,7 +142,7 @@
 				<int>め</int>
 				<int></int>
 				<int>れ</int>
-				<int></int>
+				<int>ゑ</int>
 			</flex_rows>
 			<space></space>
 			<flex_rows>
@@ -162,6 +161,7 @@
 			<flex_rows>
 				<int>ん</int>
 				<int>ゃ,ゅ,ょ</int>
+				<int>ぁ,ぃ,ぅ,ぇ,ぉ</int>
 			</flex_rows>
 		</flex_columns>
 	</block2>
@@ -191,7 +191,7 @@
 				<int>ミ</int>
 				<int></int>
 				<int>リ</int>
-				<int></int>
+				<int>ヱ</int>
 			</flex_rows>
 			<space></space>
 			<flex_rows>
@@ -217,7 +217,7 @@
 				<int>メ</int>
 				<int></int>
 				<int>レ</int>
-				<int></int>
+				<int>ヰ</int>
 			</flex_rows>
 			<space></space>
 			<flex_rows>
@@ -236,6 +236,7 @@
 			<flex_rows>
 				<int>ン</int>
 				<int>ャ,ュ,ョ</int>
+				<int>ァ,ィ,ゥ,ェ,ォ</int>
 			</flex_rows>
 		</flex_columns>
 	</block2>
@@ -255,6 +256,7 @@
 				<int>！,？</int>
 				<int>：</int>
 				<int>…,‥</int>
+				<int>・</int>
 			</flex_rows>
 			<space></space>
 			<flex_rows>
@@ -265,9 +267,10 @@
 			<space></space>
 			<flex_rows>
 				<int>ー</int>
-				<int>＝</int>
-				<int>・</int>
+				<int>゠,＝</int>
 				<int>〜</int>
+				<int>♪</int>
+				<int>〽</int>
 			</flex_rows>
 		</flex_columns>
 	</block2>
@@ -275,7 +278,7 @@
 	<block2 id = "MULTIRAD">
 		<flex_rows>
 		
-			<flex_rows style = "max-height: 30vh; overflow-y: auto; flex-wrap: nowrap;">
+			<flex_rows style = "max-height: 35vh; overflow-y: auto; flex-wrap: nowrap;">
 			<flex_columns>
 				<text_l>1</text_l>
 				<space></space>
@@ -585,7 +588,7 @@
 		</flex_rows>
 		
 		<space_l></space_l>
-		<block3><flex_rows id = "MULTIRAD_OUTPUT" style = "max-height: 30vh; overflow-y: auto; flex-wrap: nowrap;">
+		<block3><flex_rows id = "MULTIRAD_OUTPUT" style = "max-height: 35vh; overflow-y: auto; flex-wrap: nowrap;">
 			Select something!
 		</flex_rows></block3>
 

@@ -28,13 +28,6 @@
 	--body: #424951;
 	--body2: #3D434B;
 }
-/*@media (orientation: portrait) {
-	#HORIZONTAL_SCREEN_PLEASE { display: block; height: 98vh; width: 99vw; }
-	block:not(#HORIZONTAL_SCREEN_PLEASE) { display: none; }
-}
-@media (orientation: landscape) {
-	#HORIZONTAL_SCREEN_PLEASE { display: none; }
-}*/
 
 body {
 	margin-top: 0px; margin-left: 0px;
